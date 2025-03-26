@@ -96,11 +96,11 @@ $user_role = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'guest';
           <ul class="nav flex-column ms-3">
             <?php if (in_array($user_role, ['admin', 'sales'])): ?>
               <li class="nav-item">
-                <a class="nav-link" href="../opportunity/opportunity.php">New Opportunity</a>
+                <a class="nav-link" href="../opportunity/add_opp.php">New Opportunity</a>
               </li>
             <?php endif; ?>
             <li class="nav-item">
-              <a class="nav-link" href="../opportunity/opportunity.php">View Opportunity</a>
+              <a class="nav-link" href="../opportunity/list_opps.php">View Opportunity</a>
             </li>
           </ul>
         </div>

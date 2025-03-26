@@ -28,7 +28,7 @@ CREATE TABLE `crm_system`.`opportunities` (
   `id` INT(11) NOT NULL AUTO_INCREMENT , 
   `lead_id` INT(11) NOT NULL , 
   `title` TEXT NOT NULL , 
-  `amount` TEXT NOT NULL , 
+  `amount` INT(11) NOT NULL , 
   `stage` TEXT NOT NULL , 
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
