@@ -47,7 +47,7 @@ class Communication
     // Method to get all communications
     public function getAllCommunications()
     {
-        $query = 'SELECT id, lead_id, customer_id, message, date_time, type FROM ' . $this->table;
+        $query = 'SELECT customers.name, communications.message, communications.date_time, communications.type FROM ' . $this->table . ' INNER JOIN customers ON communications.customer_id = customers.id ';
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
  

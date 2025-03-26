@@ -38,7 +38,7 @@ $customers = $customerController->viewCustomers();
                         </div>
                     <?php endif; ?>
 
-                    <form action="" method="POST">
+                    <form action="../../controllers/communication_controller.php" method="POST">
                         <!-- Customer Selection -->
                         <div class="mb-3">
                             <label for="customer_id" class="form-label">Select Customer:</label>

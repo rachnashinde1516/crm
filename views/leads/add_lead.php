@@ -16,7 +16,7 @@ class LeadController
     }
 
     // Method to handle adding a new lead
-   public function addLead()
+    public function addLead()
     {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();

@@ -1,8 +1,9 @@
 <?php
+namespace App\Models;
  
 require_once __DIR__ . '/../config/config.php';  // Correct path
 
-class Customer {
+class CustomerConvert {
     private $pdo;
 
     public function __construct($pdo) {

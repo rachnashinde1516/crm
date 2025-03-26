@@ -2,11 +2,11 @@
 session_start();
 
 require_once '../../config/config.php';
+require_once '../../models/CustomerConvert.php';
 require_once '../../models/Lead.php';
-require_once '../../models/Customer.php';
 
+use App\Models\CustomerConvert;
 use App\Models\Lead;
-use App\Models\Customer;
 
 try {
     // Initialize PDO with error reporting and default fetch mode
@@ -33,8 +33,8 @@ if (isset($_GET['id'])) {
     }
 
     // Instantiate the Customer model and add the customer
-    $customerModel = new Customer($pdo);
-    $result = $customerModel->addCustomer($lead['name'], $lead['email'], $lead['phone']);
+    $customerModel = new CustomerConvert($pdo);
+    $result = $customerModel->createCustomer($lead['name'], $lead['email'], $lead['phone'], 'temp');
 
     if (!$result) {
         die("Error adding customer.");

@@ -25,7 +25,7 @@ $user_role = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'guest';
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <!-- Dashboard -->
           <li class="nav-item">
-            <a class="nav-link" href="/views/dashboard/index.php">Dashboard</a>
+            <a class="nav-link" href="/crm/views/dashboard/index.php">Dashboard</a>
           </li>
           <!-- Leads Dropdown -->
           <li class="nav-item dropdown">
@@ -34,23 +34,22 @@ $user_role = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'guest';
             </a>
             <ul class="dropdown-menu" aria-labelledby="leadsDropdown">
               <?php if (in_array($user_role, ['admin', 'sales'])): ?>
-                <li><a class="dropdown-item" href="/views/leads/add_lead.php">Add Lead</a></li>
+                <li><a class="dropdown-item" href="/crm/views/leads/add_lead.php">Add Lead</a></li>
                 <li><hr class="dropdown-divider"></li>
               <?php endif; ?>
-              <li><a class="dropdown-item" href="/views/leads/list_leads.php">View Leads</a></li>
+              <li><a class="dropdown-item" href="/crm/views/leads/list_leads.php">View Leads</a></li>
             </ul>
           </li>
           <!-- Customers -->
           <li class="nav-item">
-            <a class="nav-link" href="/views/customers/list_customers.php">Customers</a>
+            <a class="nav-link" href="/crm/views/customers/view_customers.php">Customers</a>
           </li>
           <!-- Communications -->
           <li class="nav-item">
-            <a class="nav-link" href="/views/communications/list_communications.php">Communications</a>
+            <a class="nav-link" href="/crm/views/communications/list_communications.php">Communications</a>
           </li>
-              </ul>
-
-         <!-- Right side: User info and Logout -->
+        </ul>
+        <!-- Right side: User info and Logout -->
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <?php if (isset($_SESSION['user_id'])): ?>
             <li class="nav-item">

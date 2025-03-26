@@ -66,7 +66,7 @@ class Lead
 
 
     public function updateLeadStatus($id, $status) {
-        $stmt = $this->pdo->prepare("UPDATE leads SET status = ? WHERE id = ?");
+        $stmt = $this->conn->prepare("UPDATE leads SET status = ? WHERE id = ?");
         return $stmt->execute([$status, $id]);
     }
     

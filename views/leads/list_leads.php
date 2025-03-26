@@ -42,6 +42,7 @@ $leads = $leadModel->getAllLeads();
                                     <th>Email</th>
                                     <th>Phone</th>
                                     <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -51,6 +52,11 @@ $leads = $leadModel->getAllLeads();
                                         <td><?php echo htmlspecialchars($lead['email']); ?></td>
                                         <td><?php echo htmlspecialchars($lead['phone']); ?></td>
                                         <td><?php echo htmlspecialchars($lead['status']); ?></td>
+                                        <td>
+                                            <a href="convert_lead.php?id=<?= urlencode($lead['id']) ?>">
+                                                <button>Convert</button>
+                                            </a>
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
