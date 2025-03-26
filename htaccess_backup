@@ -1,0 +1,16 @@
+# Enable URL rewriting
+RewriteEngine On
+ 
+# Redirect to index.php for all URLs (if your CRM follows clean URLs)
+RewriteRule ^$ index.php [L]
+RewriteRule ^index$ index.php [L]
+RewriteRule ^(.*)$ index.php/$1 [L]
+ 
+# Prevent access to certain directories or files (e.g., database)
+RewriteRule ^database/ - [F]
+ 
+# Set permissions for files
+<Files .env>
+    Order Allow,Deny
+    Deny from all
+</Files>

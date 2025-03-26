@@ -1,0 +1,54 @@
+/* Dashboard layout */
+.dashboard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+}
+ 
+/* Sidebar styling */
+.sidebar {
+    background-color: #34495e;
+    width: 250px;
+    padding: 20px;
+    color: white;
+}
+ 
+.sidebar a {
+    color: white;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+ 
+.sidebar a:hover {
+    background-color: #1abc9c;
+}
+ 
+/* Main dashboard content */
+.dashboard-content {
+    flex-grow: 1;
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+}
+ 
+/* User stats and charts styling */
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+ 
+.stats .card {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    width: 23%;
+    text-align: center;
+    border-radius: 8px;
+}
+ 
+.stats .card:hover {
+    background-color: #2980b9;
+}
