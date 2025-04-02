@@ -13,12 +13,13 @@ class CustomerController {
     // Create a new customer
     public function createCustomer() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = $_POST['id'];
             $name = $_POST['name'];
             $email = $_POST['email'];
             $phone = $_POST['phone'];
             $address = $_POST['address'];
 
-            if ($this->customerModel->createCustomer($name, $email, $phone, $address)) {
+            if ($this->customerModel->createCustomer($id, $name, $email, $phone, $address)) {
                 $_SESSION['success'] = 'Customer added successfully!';
                 header('Location: view_customers.php');
                 exit();
