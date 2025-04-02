@@ -50,15 +50,15 @@ $user_role = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : 'guest';
           </li>
         </ul>
         <!-- Right side: User info and Logout -->
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav nav-pills nav-fill ms-auto mb-2 mb-lg-0">
           <?php if (isset($_SESSION['user_id'])): ?>
             <li class="nav-item">
               <span class="navbar-text">
-                Welcome, <?php echo htmlspecialchars($_SESSION['user_name']); ?>
+                Welcome, <?php echo htmlspecialchars($_SESSION['user_name']); ?> &nbsp;&nbsp;&nbsp;
               </span>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../../controllers/logout.php">Logout</a>
+              <a class="nav-link active" style="color: white;" href="../../controllers/logout.php">Logout</a>
             </li>
           <?php else: ?>
             <li class="nav-item">
