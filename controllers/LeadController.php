@@ -30,6 +30,7 @@ class LeadController
             }
 
             $lead = new Lead($this->db);
+            $lead->id = htmlspecialchars(strip_tags($_POST['id']));
             $lead->name = htmlspecialchars(strip_tags($_POST['name']));
             $lead->email = htmlspecialchars(strip_tags($_POST['email']));
             $lead->phone = htmlspecialchars(strip_tags($_POST['phone']));

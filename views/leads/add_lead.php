@@ -13,6 +13,16 @@ class LeadController
     public function __construct($pdo)
     {
         $this->db = $pdo;
+        if (isset($_GET['id'])) {
+            $leadId = $_GET['id'];
+        
+            // Instantiate the Lead model and fetch lead details
+            $leadModel = new Lead($pdo);
+            $lead = $leadModel->getLeadById($leadId);
+            alert($lead);
+            // CHATGPT code update here
+
+        }
     }
 
     // Method to handle adding a new lead
@@ -78,24 +88,28 @@ include '../../includes/sidebar.php';
                     }
                     ?>
                     <form action="../../controllers/lead_controller.php" method="POST">
+                        <div style='display:none'>
+                            <label for="id" class="form-label">Lead Id:</label>
+                            <input type="text" name="id" class="form-control" value="<?php echo isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''; ?>">
+                        </div>
                         <div class="mb-3">
                             <label for="name" class="form-label">Lead Name:</label>
-                            <input type="text" name="name" class="form-control" required>
+                            <input type="text" name="name" class="form-control" required value="<?php echo isset($_GET['name']) ? htmlspecialchars($_GET['name']) : ''; ?>">
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email:</label>
-                            <input type="email" name="email" class="form-control" required>
+                            <input type="email" name="email" class="form-control" required value="<?php echo isset($_GET['email']) ? htmlspecialchars($_GET['email']) : ''; ?>">
                         </div>
                         <div class="mb-3">
                             <label for="phone" class="form-label">Phone:</label>
-                            <input type="text" name="phone" class="form-control" required>
+                            <input type="text" name="phone" class="form-control" required value="<?php echo isset($_GET['phone']) ? htmlspecialchars($_GET['phone']) : ''; ?>">
                         </div>
                         <div class="mb-3">
                             <label for="status" class="form-label">Status:</label>
                             <select name="status" class="form-select" required>
-                                <option value="new">New</option>
-                                <option value="contacted">Contacted</option>
-                                <option value="converted">Converted</option>
+                                <option value="new" <?= isset($_GET['status']) && ($_GET['status'] == 'new') ? 'selected' : '' ?>>New</option>
+                                <option value="contacted" <?= isset($_GET['status']) && ($_GET['status'] == 'contacted') ? 'selected' : '' ?>>Contacted</option>
+                                <option value="converted" <?= isset($_GET['status']) && ($_GET['status'] == 'converted') ? 'selected' : '' ?>>Converted</option>
                             </select>
                         </div>
                         <button type="submit" class="btn btn-success">Add Lead</button>

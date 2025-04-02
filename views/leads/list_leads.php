@@ -33,6 +33,16 @@ $leads = $leadModel->getAllLeads();
                 <div class="card-header bg-primary text-white text-center">
                     <h4>List of Leads</h4>
                 </div>
+                <?php
+                    if (isset($_SESSION['error'])) {
+                        echo '<div class="alert alert-danger">' . $_SESSION['error'] . '</div>';
+                        unset($_SESSION['error']);
+                    }
+                    if (isset($_SESSION['success'])) {
+                        echo '<div class="alert alert-success">' . $_SESSION['success'] . '</div>';
+                        unset($_SESSION['success']);
+                    }
+                    ?>
                 <div class="card-body">
                     <?php if ($leads): ?>
                         <table class="table table-bordered table-striped">
@@ -54,13 +64,20 @@ $leads = $leadModel->getAllLeads();
                                         <td><?php echo htmlspecialchars($lead['status']); ?></td>
                                         <td>
                                             <a href="convert_lead.php?id=<?= urlencode($lead['id']) ?>">
-                                                <button>Convert</button>
-                                            </a>
+                                                <button style='border-radius: 9px; background-color: green; color: white; margin: 2px;border-width: thin;'>Convert</button>
+                                            </a><br/>
+                                            <a href="add_lead.php?id=<?= urlencode($lead['id']) ?>&name=<?= urlencode($lead['name']) ?>&email=<?= urlencode($lead['email']) ?>&phone=<?= urlencode($lead['phone']) ?>&status=<?= urlencode($lead['status']) ?>">
+                                                <button style='border-radius: 9px; background-color: yellow; color: black; margin: 2px;border-width: thin;'>Edit</button>
+                                            </a><br/>
+                                            <a href="delete_lead.php?id=<?= urlencode($lead['id']) ?>">
+                                                <button style='border-radius: 9px; background-color: red; color: white; margin: 2px;border-width: thin;'>Delete</button>
+                                            </a><br/>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
+
                     <?php else: ?>
                         <div class="alert alert-warning text-center">No leads found.</div>
                     <?php endif; ?>
