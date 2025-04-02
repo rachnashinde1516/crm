@@ -20,24 +20,31 @@ include '../../includes/sidebar.php';
     <?php endif; ?>
 
     <form action="process_customer.php" method="POST" class="card p-4 shadow-sm">
+
+        <div style='display:none'>
+            <label for="id" class="form-label">Customer Id:</label>
+            <input type="text" name="id" class="form-control" value="<?php echo isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''; ?>">
+        </div>
+
         <div class="mb-3">
             <label class="form-label">Name:</label>
-            <input type="text" name="name" class="form-control" required>
+            <input type="text" name="name" class="form-control" required value="<?php echo isset($_GET['name']) ? htmlspecialchars($_GET['name']) : ''; ?>">
         </div>
 
         <div class="mb-3">
             <label class="form-label">Email:</label>
-            <input type="email" name="email" class="form-control" required>
+            <input type="email" name="email" class="form-control" required value="<?php echo isset($_GET['email']) ? htmlspecialchars($_GET['email']) : ''; ?>">
         </div>
 
         <div class="mb-3">
             <label class="form-label">Phone:</label>
-            <input type="text" name="phone" class="form-control" required>
+            <input type="text" name="phone" class="form-control" required value="<?php echo isset($_GET['phone']) ? htmlspecialchars($_GET['phone']) : ''; ?>">
         </div>
 
         <div class="mb-3">
             <label class="form-label">Address:</label>
-            <textarea name="address" class="form-control" required></textarea>
+            <textarea name="address" class="form-control" required><?php echo isset($_GET['address']) ? htmlspecialchars($_GET['address']) : ''; ?>
+            </textarea>
         </div>
 
         <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Add Customer</button>
